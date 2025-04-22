@@ -1,8 +1,5 @@
 # Deep Learning Project 2 - AG News Classification with LoRA
 
-## Team Members
-[Please add team member names and NetIDs]
-
 ## Project Overview
 This project implements a modified BERT architecture using Low-Rank Adaptation (LoRA) for text classification on the AG News dataset. The goal is to achieve high test accuracy while maintaining the model under 1 million trainable parameters.
 
@@ -37,12 +34,11 @@ pip install scikit-learn
 - Adaptation Method: LoRA (Low-Rank Adaptation)
 - Dataset: AG News Classification
 - Parameter Constraint: < 1 million trainable parameters
-- LoRA Configuration:
+- LoRA Configuration Overview:
   - Rank (r): 7
   - Alpha: 16
   - Dropout: 0.05
   - Target Modules: query, key, value layers
-  - Bias: none
   - Task Type: Sequence Classification
 
 ## Key Features
