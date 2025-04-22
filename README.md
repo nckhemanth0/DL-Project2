@@ -45,7 +45,6 @@ pip install scikit-learn
 - LoRA implementation with configurable rank and alpha parameters
 - Parameter-efficient fine-tuning (only 0.78% of parameters are trainable)
 - Total trainable parameters: 980,740
-- Total model parameters: 125,629,448
 - Hyperparameter optimization
 - Test accuracy tracking
 - Parameter count verification
@@ -55,32 +54,21 @@ pip install scikit-learn
 - Total Trainable Parameters: 980,740
 - Model Architecture Details: RoBERTa base model with LoRA adaptation (r=7, alpha=16) applied to attention query, key, and value matrices in transformer layers. The model achieves parameter efficiency by making only 0.78% of the total parameters trainable.
 
-### Model Evolution and Comparison
-| Version | Architecture & Parameters | Target Modules | Rank (r) | Alpha | Dropout | Trainable Params | Accuracy (%) |
-|---------|-------------------------|----------------|----------|--------|---------|------------------|--------------|
-| V1      | Base RoBERTa + LoRA    | query         | 4        | 8      | 0.1     | 589,824         | 86.45        |
-| V2      | + key module           | query, key     | 4        | 8      | 0.1     | 687,104         | 87.23        |
-| V3      | + value module         | q, k, v        | 4        | 8      | 0.05    | 784,384         | 87.89        |
-| V4      | + rank tuning          | q, k, v        | 7        | 16     | 0.05    | 980,740         | 88.91        |
-
-Table 1: Model progression showing the impact of different architectural choices and hyperparameters on model performance. Each version builds upon the previous one, demonstrating incremental improvements in accuracy while staying within the 1M parameter constraint.
-
 ### Classification Performance
 Our model achieved strong performance across all four categories of the AG News dataset, as shown in Figure 5. The Sports category demonstrated the highest performance with an F1-score of 0.956, followed by Business (0.873), World (0.870), and Sci/Tech (0.859). The model maintained balanced precision and recall metrics across categories, with an overall accuracy of 88.91%. Notably, the class distribution analysis shows relatively balanced prediction counts across categories (140-186 samples per class), indicating robust performance without significant class bias. The macro-averaged F1-score of 0.890 suggests consistent performance across all categories, while the weighted average of 0.889 confirms the model's reliability considering class distributions.
 
-## Report Contents (To Be Completed)
-1. Team member names
-2. Project overview and findings summary
-3. Methodology section
+## Report Contents
+1. Project overview and findings summary
+2. Methodology section
    - Model design process
    - Training approach
    - Hyperparameter choices and rationale
    - Lessons learned
-4. Results section
+3. Results section
    - Final test accuracy
    - Model architecture
    - Parameter count
-5. Citations
+4. Citations
 
 ## Repository Guidelines
 - Code is well-documented
